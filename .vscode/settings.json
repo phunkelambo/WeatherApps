@@ -1,0 +1,11 @@
+{
+    "git.autofetch": true,
+    "typescript.disableAutomaticTypeAcquisition": true,
+    "editor.linkedEditing": true,
+    "editor.parameterHints.cycle": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "workbench.editor.enablePreviewFromQuickOpen": true,
+    "window.autoDetectColorScheme": false,
+    "simpleBrowser.focusLockIndicator.enabled": true
+}
