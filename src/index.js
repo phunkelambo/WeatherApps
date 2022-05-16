@@ -44,6 +44,41 @@ date.innerHTML = `${day}, ${month} ${dates}, ${year}`;
 let time = document.querySelector("#time");
 time.innerHTML = `${hours}:${minutes}`;
 
+
+function displayForecast(response) {
+  let forecast = response.data.daily;
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row gx-0">`;
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `
+            <div class="col card-column">
+              <h5 class="card-title">${formatDay(forecastDay.dt)}</h5>
+              <div class="card border-0 h-100">
+                <div class="text-center card-content">
+                  <span class="card-temp-max">${Math.round(
+                    forecastDay.temp.max
+                  )}°</span>
+                  <span class="card-temp-min">${Math.round(
+                    forecastDay.temp.min
+                  )}°<span>
+                  <div>
+                    <img
+                      src="images/${forecastDay.weather[0].icon}.png"
+                      class="card-img-top card-image"
+                      alt="..."
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>`;
+    }
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+
 function displayWeatherInfo(response) {
   document.querySelector("h1").innerHTML = response.data.name;
 
